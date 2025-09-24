@@ -1,6 +1,6 @@
 # BI-MDF.21 Semestral project
 
-Name: `<INSERT NAME>`
+Name: Michal Mityska
 
 You may add/remove files as necessary, but stick to the naming conventions.
 
