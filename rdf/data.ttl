@@ -1,0 +1,124 @@
+@prefix ex: <http://example.org/vocabulary/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Definice trid 
+ex:Benzinka rdf:type rdfs:Class ;
+    rdfs:label "Benzínka"@cs .
+
+ex:Palivo rdf:type rdfs:Class ;
+    rdfs:label "Palivo"@cs .
+
+ex:Dodavatel rdf:type rdfs:Class ;
+    rdfs:label "Dodavatel"@cs .
+
+# Definice vlastnosti 
+ex:adresa rdf:type rdf:Property ;
+    rdfs:label "adresa"@cs ; # nazev
+    rdfs:domain ex:Benzinka ; # ktere tride patri
+    rdfs:range xsd:string . # datovy typ
+
+ex:oteviracidoba rdf:type rdf:Property ;
+    rdfs:label "otevírací doba"@cs ;
+    rdfs:domain ex:Benzinka ;
+    rdfs:range xsd:string .
+
+ex:nazev rdf:type rdf:Property ;
+    rdfs:label "název"@cs ;
+    rdfs:domain ex:Benzinka ;
+    rdfs:range xsd:string .
+
+ex:paliva rdf:type rdf:Property ;
+    rdfs:label "paliva"@cs ;
+    rdfs:domain ex:Benzinka ;
+    rdfs:range ex:Palivo .
+
+ex:typ rdf:type rdf:Property ;
+    rdfs:label "typ"@cs ;
+    rdfs:domain ex:Palivo ;
+    rdfs:range xsd:string .
+
+ex:cenaZaLitr rdf:type rdf:Property ;
+    rdfs:label "cena za litr"@cs ;
+    rdfs:domain ex:Palivo ;
+    rdfs:range xsd:decimal .
+
+ex:dodavatel rdf:type rdf:Property ;
+    rdfs:label "dodavatel"@cs ;
+    rdfs:domain ex:Palivo ;
+    rdfs:range ex:Dodavatel .
+
+ex:jmeno rdf:type rdf:Property ;
+    rdfs:label "jméno"@cs ;
+    rdfs:domain ex:Dodavatel ;
+    rdfs:range xsd:string .
+
+ex:kontakt rdf:type rdf:Property ;
+    rdfs:label "kontakt"@cs ;
+    rdfs:domain ex:Dodavatel ;
+    rdfs:range xsd:string .
+
+ex:kapacita rdf:type rdf:Property ;
+    rdfs:label "kapacita"@cs ;
+    rdfs:domain ex:Dodavatel ;
+    rdfs:range xsd:integer .
+
+# Instance benzinek
+ex:benzinka1 rdf:type ex:Benzinka ;
+    rdfs:label "Shell Praha centrum"@cs ;
+    ex:nazev "Shell Praha" ;
+    ex:adresa "Na Příkopě 25, Praha 1" ;
+    ex:oteviracidoba "06:00-22:00" ;
+    ex:paliva ex:palivo1, ex:palivo2, ex:palivo3 .
+
+ex:benzinka2 rdf:type ex:Benzinka ;
+    rdfs:label "OMV Brno západ"@cs ;
+    ex:nazev "OMV Brno" ;
+    ex:adresa "Pražská 125, Brno" ;
+    ex:oteviracidoba "00:00-24:00" ;
+    ex:paliva ex:palivo2, ex:palivo3, ex:palivo4 .
+
+# Instance paliv
+ex:palivo1 rdf:type ex:Palivo ;
+    rdfs:label "Natural 95"@cs ;
+    ex:typ "Natural 95" ;
+    ex:cenaZaLitr "38.50"^^xsd:decimal ;
+    ex:dodavatel ex:dodavatel1, ex:dodavatel2 .
+
+ex:palivo2 rdf:type ex:Palivo ;
+    rdfs:label "Diesel"@cs ;
+    ex:typ "Diesel" ;
+    ex:cenaZaLitr "37.20"^^xsd:decimal ;
+    ex:dodavatel ex:dodavatel1, ex:dodavatel3 .
+
+ex:palivo3 rdf:type ex:Palivo ;
+    rdfs:label "LPG"@cs ;
+    ex:typ "LPG" ;
+    ex:cenaZaLitr "19.80"^^xsd:decimal ;
+    ex:dodavatel ex:dodavatel2 .
+
+ex:palivo4 rdf:type ex:Palivo ;
+    rdfs:label "Natural 98"@cs ;
+    ex:typ "Natural 98" ;
+    ex:cenaZaLitr "41.90"^^xsd:decimal ;
+    ex:dodavatel ex:dodavatel3 .
+
+# Instance dodavatelu
+ex:dodavatel1 rdf:type ex:Dodavatel ;
+    rdfs:label "ČEPRO"@cs ;
+    ex:jmeno "ČEPRO, a.s." ;
+    ex:kontakt "info@cepro.cz" ;
+    ex:kapacita "1000000"^^xsd:integer .
+
+ex:dodavatel2 rdf:type ex:Dodavatel ;
+    rdfs:label "MOL Group"@cs ;
+    ex:jmeno "MOL Česká republika" ;
+    ex:kontakt "+420 800 123 456" ;
+    ex:kapacita "850000"^^xsd:integer .
+
+ex:dodavatel3 rdf:type ex:Dodavatel ;
+    rdfs:label "Unipetrol"@cs ;
+    ex:jmeno "Unipetrol RPA" ;
+    ex:kontakt "obchod@unipetrol.cz" ;
+    ex:kapacita "1200000"^^xsd:integer .
