@@ -1,0 +1,4 @@
+1. Které benzínky nabízejí palivo typu Diesel a jaká je jeho cena za litr?
+2. Kteří dodavatelé dodávají Natural95 do více než dvou benzínek?
+3. Najdi všechny benzínky, které mají otevřeno po 22:00 a nabízejí LPG.
+4. Jaká je průměrná cena paliva od konkrétního dodavatele?

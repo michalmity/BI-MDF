@@ -1,0 +1,29 @@
+# Domain: Benzínka
+
+## Třídy a atributy
+
+### Benzínka
+- adresa (řetězec) – lokalita, kde se benzínka nachází
+- otevíracíDoba (časový interval) – kdy má benzínka otevřeno
+- název (řetězec) – obchodní název benzínky
+- paliva (0..*) – množina paliv, která benzínka prodává
+
+### Palivo
+- typ (řetězec) – druh paliva (Natural95, Diesel, LPG, …)
+- cenaZaLitr (číslo) – aktuální cena za litr
+- dodavatel (1..*) – alespoň jeden dodavatel zajišťující toto palivo
+
+### Dodavatel
+- jméno (řetězec) – název firmy, která palivo dodává
+- kontakt (řetězec) – telefon, e-mail nebo adresa
+- kapacita (číslo) – maximální množství paliva, které je schopen dodat
+
+
+## Vazby a multiplicity
+- Benzínka – Palivo  
+  - Jedna benzínka nabízí 1..* paliv  
+  - Jedno palivo může být dostupné na 1..* benzínkách  
+
+- Palivo – Dodavatel  
+  - Jedno palivo musí mít 1..* dodavatelů (alespoň jednoho)  
+  - Jeden dodavatel může dodávat 1..* různých paliv  
