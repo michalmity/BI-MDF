@@ -1,1 +1,19 @@
-# Comment
+# Popis: Vytvori RDF graf. Pro kazdou benzinku vytvorime popis o tom kteri dodavatele zasobuji danou benzinku. 
+
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  ex:   <http://example.org/vocabulary/>
+
+CONSTRUCT 
+  { 
+    ?benzinka rdfs:comment ?novyKomentar .
+  }
+WHERE
+  { ?benzinka  rdf:type     ex:Benzinka ;
+              ex:nazev      ?nazevBenzinky ;
+              ex:paliva     ?palivo .
+    ?palivo   ex:dodavatel  ?dodavatel .
+    ?dodavatel  ex:jmeno    ?jmenoDodavatele
+    BIND(concat("Stanice '", ?nazevBenzinky, "' je zásobována od '", ?jmenoDodavatele, "'.") AS ?textKomentare)
+    BIND(strlang(?textKomentare, "cs") AS ?novyKomentar)
+  }

@@ -1,1 +1,19 @@
-# Comment
+# Popis: Dotaz č. 2 z Úlohy 1.
+# Najde vsehcny dodavatele kteri prodavaji Benzín alespon na dve benzinky.
+
+PREFIX ex: <http://example.org/vocabulary/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?jmenoDodavatele (COUNT(DISTINCT ?benzinka) AS ?pocetBenzinek)
+WHERE {
+  ?palivo ex:typ "Natural 95"^^xsd:string ;
+          ex:dodavatel ?dodavatel .
+  
+  ?dodavatel ex:jmeno ?jmenoDodavatele .
+  
+  ?benzinka ex:paliva ?palivo .
+}
+GROUP BY ?jmenoDodavatele
+HAVING (COUNT(DISTINCT ?benzinka) > 2)
+ORDER BY DESC(?pocetBenzinek)
