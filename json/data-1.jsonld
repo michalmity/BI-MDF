@@ -1,1 +1,97 @@
-
+{
+  "@context": {
+    "ex": "http://example.org/vocabulary/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Benzinka": "ex:Benzinka",
+    "Palivo": "ex:Palivo",
+    "Dodavatel": "ex:Dodavatel",
+    "nazev": { "@id": "ex:nazev", "@language": "cs" },
+    "adresa": { "@id": "ex:adresa", "@language": "cs" },
+    "oteviracidoba": { "@id": "ex:oteviracidoba", "@type": "xsd:string" },
+    "paliva": { "@id": "ex:paliva", "@container": "@set" },
+    "typ": { "@id": "ex:typ", "@type": "xsd:string" },
+    "cenaZaLitr": { "@id": "ex:cenaZaLitr", "@type": "xsd:decimal" },
+    "dodavatel": { "@id": "ex:dodavatel", "@container": "@set" },
+    "jmeno": { "@id": "ex:jmeno", "@language": "cs" },
+    "kontakt": { "@id": "ex:kontakt", "@type": "@id" },
+    "kapacita": { "@id": "ex:kapacita", "@type": "xsd:integer" }
+  },
+  "@graph": [
+    {
+      "@id": "ex:benzinka1",
+      "@type": "Benzinka",
+      "nazev": "Shell Praha",
+      "adresa": "Na Příkopě 25, Praha 1",
+      "oteviracidoba": "06:00-22:00",
+      "paliva": [
+        {
+          "@id": "ex:palivo1",
+          "@type": "Palivo",
+          "typ": "Natural 95",
+          "cenaZaLitr": 38.50,
+          "dodavatel": [
+            {
+              "@id": "ex:dodavatel1",
+              "@type": "Dodavatel",
+              "jmeno": "ČEPRO, a.s.",
+              "kontakt": "mailto:info@cepro.cz",
+              "kapacita": 1000000
+            },
+            {
+              "@id": "ex:dodavatel2",
+              "@type": "Dodavatel",
+              "jmeno": "MOL Česká republika",
+              "kontakt": "tel:+420800123456",
+              "kapacita": 850000
+            }
+          ]
+        },
+        {
+          "@id": "ex:palivo2",
+          "@type": "Palivo",
+          "typ": "Diesel",
+          "cenaZaLitr": 37.20,
+          "dodavatel": [
+             { "@id": "ex:dodavatel1" },
+             {
+               "@id": "ex:dodavatel3",
+               "@type": "Dodavatel",
+               "jmeno": "Unipetrol RPA",
+               "kontakt": "mailto:obchod@unipetrol.cz",
+               "kapacita": 1200000
+             }
+          ]
+        },
+        {
+          "@id": "ex:palivo3",
+          "@type": "Palivo",
+          "typ": "LPG",
+          "cenaZaLitr": 19.80,
+          "dodavatel": [
+             { "@id": "ex:dodavatel2" }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "ex:benzinka2",
+      "@type": "Benzinka",
+      "nazev": "OMV Brno",
+      "adresa": "Pražská 125, Brno",
+      "oteviracidoba": "00:00-24:00",
+      "paliva": [
+        { "@id": "ex:palivo2" },
+        { "@id": "ex:palivo3" },
+        {
+          "@id": "ex:palivo4",
+          "@type": "Palivo",
+          "typ": "Natural 98",
+          "cenaZaLitr": 41.90,
+          "dodavatel": [
+             { "@id": "ex:dodavatel3" }
+          ]
+        }
+      ]
+    }
+  ]
+}

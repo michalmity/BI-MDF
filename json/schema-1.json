@@ -1,1 +1,56 @@
-
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "@context": { "type": "object" },
+    "@graph": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Benzinka" }
+    }
+  },
+  "required": ["@graph"],
+  "definitions": {
+    "Benzinka": {
+      "type": "object",
+      "properties": {
+        "@id": { "type": "string" },
+        "@type": { "const": "Benzinka" },
+        "nazev": { "type": "string" },
+        "adresa": { "type": "string" },
+        "oteviracidoba": { "type": "string" },
+        "paliva": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/Palivo" }
+        }
+      },
+      "required": ["nazev", "adresa", "paliva"]
+    },
+    "Palivo": {
+      "type": "object",
+      "properties": {
+        "@id": { "type": "string" },
+        "@type": { "const": "Palivo" },
+        "typ": { "type": "string" },
+        "cenaZaLitr": { "type": "number" },
+        "dodavatel": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/Dodavatel" }
+        }
+      },
+      "required": ["@id"]
+    },
+    "Dodavatel": {
+      "type": "object",
+      "properties": {
+        "@id": { "type": "string" },
+        "@type": { "const": "Dodavatel" },
+        "jmeno": { "type": "string" },
+        "kontakt": { "type": "string" },
+        "kapacita": { "type": "integer" }
+      },
+      "required": ["@id"]
+    }
+  }
+}
