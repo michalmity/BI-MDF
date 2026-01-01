@@ -1,1 +1,7 @@
-
+id,typ,cena,dodavatel_id
+palivo1,Natural 95,38.50,dodavatel1
+palivo1,Natural 95,38.50,dodavatel2
+palivo2,Diesel,37.20,dodavatel1
+palivo2,Diesel,37.20,dodavatel3
+palivo3,LPG,19.80,dodavatel2
+palivo4,Natural 98,41.90,dodavatel3

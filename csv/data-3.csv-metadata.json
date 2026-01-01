@@ -1,0 +1,30 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "url": "data-3.csv",
+  "tableSchema": {
+    "aboutUrl": "http://example.org/vocabulary/{id}",
+    "columns": [
+      {
+        "name": "id",
+        "datatype": "string",
+        "suppressOutput": true
+      },
+      {
+        "name": "jmeno",
+        "propertyUrl": "http://example.org/vocabulary/jmeno",
+        "datatype": "string",
+        "lang": "cs"
+      },
+      {
+        "name": "kontakt",
+        "propertyUrl": "http://example.org/vocabulary/kontakt",
+        "valueUrl": "{+kontakt}"
+      },
+      {
+        "name": "kapacita",
+        "propertyUrl": "http://example.org/vocabulary/kapacita",
+        "datatype": "integer"
+      }
+    ]
+  }
+}

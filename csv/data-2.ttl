@@ -1,1 +1,76 @@
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://example.org/vocabulary/palivo3> <http://example.org/vocabulary/cenaZaLitr> 19.80;
+  <http://example.org/vocabulary/dodavatel> <http://example.org/vocabulary/dodavatel2>;
+  <http://example.org/vocabulary/typ> "LPG"@cs .
+
+<http://example.org/vocabulary/palivo4> <http://example.org/vocabulary/cenaZaLitr> 41.90;
+  <http://example.org/vocabulary/dodavatel> <http://example.org/vocabulary/dodavatel3>;
+  <http://example.org/vocabulary/typ> "Natural 98"@cs .
+
+<http://example.org/vocabulary/palivo1> <http://example.org/vocabulary/cenaZaLitr> 38.50;
+  <http://example.org/vocabulary/dodavatel> <http://example.org/vocabulary/dodavatel1>,
+    <http://example.org/vocabulary/dodavatel2>;
+  <http://example.org/vocabulary/typ> "Natural 95"@cs .
+
+<http://example.org/vocabulary/palivo2> <http://example.org/vocabulary/cenaZaLitr> 37.20;
+  <http://example.org/vocabulary/dodavatel> <http://example.org/vocabulary/dodavatel1>,
+    <http://example.org/vocabulary/dodavatel3>;
+  <http://example.org/vocabulary/typ> "Diesel"@cs .
+
+ [
+    a csvw:TableGroup;
+    csvw:table [
+      a csvw:Table;
+      csvw:row [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/palivo1>;
+        csvw:rownum 1;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv#row=2>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/palivo1>;
+        csvw:rownum 2;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv#row=3>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/palivo2>;
+        csvw:rownum 3;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv#row=4>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/palivo2>;
+        csvw:rownum 4;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv#row=5>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/palivo3>;
+        csvw:rownum 5;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv#row=6>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/palivo4>;
+        csvw:rownum 6;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv#row=7>
+      ];
+      csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv>
+    ];
+    prov:wasGeneratedBy [
+      a prov:Activity;
+      prov:endedAtTime "2026-01-01T19:56:24.621+01:00"^^xsd:dateTime;
+      prov:qualifiedUsage [
+        a prov:Usage;
+        prov:entity <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv>;
+        prov:hadRole csvw:csvEncodedTabularData
+      ], [
+        a prov:Usage;
+        prov:entity <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-2.csv-metadata.json>;
+        prov:hadRole csvw:tabularMetadata
+      ];
+      prov:startedAtTime "2026-01-01T19:56:24.592+01:00"^^xsd:dateTime;
+      prov:wasAssociatedWith <https://rubygems.org/gems/rdf-tabular>
+    ]
+  ] .

@@ -1,0 +1,55 @@
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/vocabulary/dodavatel1> <http://example.org/vocabulary/jmeno> "ČEPRO, a.s."@cs;
+  <http://example.org/vocabulary/kapacita> 1000000;
+  <http://example.org/vocabulary/kontakt> <mailto:info@cepro.cz> .
+
+<http://example.org/vocabulary/dodavatel2> <http://example.org/vocabulary/jmeno> "MOL Česká republika"@cs;
+  <http://example.org/vocabulary/kapacita> 850000;
+  <http://example.org/vocabulary/kontakt> <tel:+420800123456> .
+
+<http://example.org/vocabulary/dodavatel3> <http://example.org/vocabulary/jmeno> "Unipetrol RPA"@cs;
+  <http://example.org/vocabulary/kapacita> 1200000;
+  <http://example.org/vocabulary/kontakt> <mailto:obchod@unipetrol.cz> .
+
+ [
+    a csvw:TableGroup;
+    csvw:table [
+      a csvw:Table;
+      csvw:row [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/dodavatel1>;
+        csvw:rownum 1;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-3.csv#row=2>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/dodavatel2>;
+        csvw:rownum 2;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-3.csv#row=3>
+      ], [
+        a csvw:Row;
+        csvw:describes <http://example.org/vocabulary/dodavatel3>;
+        csvw:rownum 3;
+        csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-3.csv#row=4>
+      ];
+      csvw:url <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-3.csv>
+    ];
+    prov:wasGeneratedBy [
+      a prov:Activity;
+      prov:endedAtTime "2026-01-01T19:56:25.788+01:00"^^xsd:dateTime;
+      prov:qualifiedUsage [
+        a prov:Usage;
+        prov:entity <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-3.csv>;
+        prov:hadRole csvw:csvEncodedTabularData
+      ], [
+        a prov:Usage;
+        prov:entity <file:/Users/michal/Documents/Skola/MDF/mitysmic/csv/data-3.csv-metadata.json>;
+        prov:hadRole csvw:tabularMetadata
+      ];
+      prov:startedAtTime "2026-01-01T19:56:25.760+01:00"^^xsd:dateTime;
+      prov:wasAssociatedWith <https://rubygems.org/gems/rdf-tabular>
+    ]
+  ] .

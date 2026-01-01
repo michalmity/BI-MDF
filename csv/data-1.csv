@@ -1,1 +1,7 @@
-
+id,nazev,adresa,oteviracidoba,palivo_id
+benzinka1,Shell Praha,"Na Příkopě 25, Praha 1",06:00-22:00,palivo1
+benzinka1,Shell Praha,"Na Příkopě 25, Praha 1",06:00-22:00,palivo2
+benzinka1,Shell Praha,"Na Příkopě 25, Praha 1",06:00-22:00,palivo3
+benzinka2,OMV Brno,"Pražská 125, Brno",00:00-24:00,palivo2
+benzinka2,OMV Brno,"Pražská 125, Brno",00:00-24:00,palivo3
+benzinka2,OMV Brno,"Pražská 125, Brno",00:00-24:00,palivo4

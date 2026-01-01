@@ -1,1 +1,36 @@
-
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "url": "data-1.csv",
+  "tableSchema": {
+    "aboutUrl": "http://example.org/vocabulary/{id}",
+    "columns": [
+      {
+        "name": "id",
+        "datatype": "string",
+        "suppressOutput": true
+      },
+      {
+        "name": "nazev",
+        "propertyUrl": "http://example.org/vocabulary/nazev",
+        "datatype": "string",
+        "lang": "cs"
+      },
+      {
+        "name": "adresa",
+        "propertyUrl": "http://example.org/vocabulary/adresa",
+        "datatype": "string",
+        "lang": "cs"
+      },
+      {
+        "name": "oteviracidoba",
+        "propertyUrl": "http://example.org/vocabulary/oteviracidoba",
+        "datatype": "string"
+      },
+      {
+        "name": "palivo_id",
+        "propertyUrl": "http://example.org/vocabulary/paliva",
+        "valueUrl": "http://example.org/vocabulary/{palivo_id}"
+      }
+    ]
+  }
+}
