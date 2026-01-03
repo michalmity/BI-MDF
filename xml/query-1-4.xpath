@@ -1,0 +1,5 @@
+(: 4. Jaká je průměrná cena paliva od konkrétního dodavatele? (ČEPRO, a.s.) :)
+
+sum(//palivo[dodavatelePaliva/refDodavatel = //dodavatel[jmeno='ČEPRO, a.s.']/@iri]/cena)
+div
+count(//palivo[dodavatelePaliva/refDodavatel = //dodavatel[jmeno='ČEPRO, a.s.']/@iri])

@@ -1,0 +1,9 @@
+(: 2. Najdi dodavatele kteří dodávají Natural95 do více než dvou benzínek.:)
+
+
+//dodavatel[
+    @iri = //palivo[
+        typ = 'Natural 95' and 
+        count(//benzinka[nabiziPaliva/refPalivo = current()/@iri]) > 2
+    ]/dodavatelePaliva/refDodavatel
+]

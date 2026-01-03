@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<katalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="schema-1.xsd">
+    
+    <benzinky>
+        <benzinka iri="http://example.org/vocabulary/benzinka1">
+            <nazev xml:lang="cs">Shell Praha</nazev>
+            <adresa xml:lang="cs">Na Příkopě 25, Praha 1</adresa>
+            <oteviraciDoba>06:00-22:00</oteviraciDoba>
+            <nabiziPaliva>
+                <refPalivo>http://example.org/vocabulary/palivo1</refPalivo>
+                <refPalivo>http://example.org/vocabulary/palivo2</refPalivo>
+                <refPalivo>http://example.org/vocabulary/palivo3</refPalivo>
+            </nabiziPaliva>
+        </benzinka>
+        <benzinka iri="http://example.org/vocabulary/benzinka2">
+            <nazev xml:lang="cs">OMV Brno</nazev>
+            <adresa xml:lang="cs">Pražská 125, Brno</adresa>
+            <oteviraciDoba>00:00-24:00</oteviraciDoba>
+            <nabiziPaliva>
+                <refPalivo>http://example.org/vocabulary/palivo2</refPalivo>
+                <refPalivo>http://example.org/vocabulary/palivo3</refPalivo>
+                <refPalivo>http://example.org/vocabulary/palivo4</refPalivo>
+            </nabiziPaliva>
+        </benzinka>
+    </benzinky>
+
+    <paliva>
+        <palivo iri="http://example.org/vocabulary/palivo1">
+            <typ xml:lang="cs">Natural 95</typ>
+            <cena>38.50</cena>
+            <dodavatelePaliva>
+                <refDodavatel>http://example.org/vocabulary/dodavatel1</refDodavatel>
+                <refDodavatel>http://example.org/vocabulary/dodavatel2</refDodavatel>
+            </dodavatelePaliva>
+        </palivo>
+        <palivo iri="http://example.org/vocabulary/palivo2">
+            <typ xml:lang="cs">Diesel</typ>
+            <cena>37.20</cena>
+            <dodavatelePaliva>
+                <refDodavatel>http://example.org/vocabulary/dodavatel1</refDodavatel>
+                <refDodavatel>http://example.org/vocabulary/dodavatel3</refDodavatel>
+            </dodavatelePaliva>
+        </palivo>
+        <palivo iri="http://example.org/vocabulary/palivo3">
+            <typ xml:lang="cs">LPG</typ>
+            <cena>19.80</cena>
+            <dodavatelePaliva>
+                <refDodavatel>http://example.org/vocabulary/dodavatel2</refDodavatel>
+            </dodavatelePaliva>
+        </palivo>
+        <palivo iri="http://example.org/vocabulary/palivo4">
+            <typ xml:lang="cs">Natural 98</typ>
+            <cena>41.90</cena>
+            <dodavatelePaliva>
+                <refDodavatel>http://example.org/vocabulary/dodavatel3</refDodavatel>
+            </dodavatelePaliva>
+        </palivo>
+    </paliva>
+
+    <dodavatele>
+        <dodavatel iri="http://example.org/vocabulary/dodavatel1">
+            <jmeno xml:lang="cs">ČEPRO, a.s.</jmeno>
+            <kontakt>mailto:info@cepro.cz</kontakt>
+            <kapacita>1000000</kapacita>
+        </dodavatel>
+        <dodavatel iri="http://example.org/vocabulary/dodavatel2">
+            <jmeno xml:lang="cs">MOL Česká republika</jmeno>
+            <kontakt>tel:+420800123456</kontakt>
+            <kapacita>850000</kapacita>
+        </dodavatel>
+        <dodavatel iri="http://example.org/vocabulary/dodavatel3">
+            <jmeno xml:lang="cs">Unipetrol RPA</jmeno>
+            <kontakt>mailto:obchod@unipetrol.cz</kontakt>
+            <kapacita>1200000</kapacita>
+        </dodavatel>
+    </dodavatele>
+</katalog>

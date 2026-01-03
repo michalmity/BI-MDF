@@ -1,0 +1,5 @@
+(: Najdi benzínky které nabízejí palivo typu Diesel a jaká je jeho cena za litr.:)
+
+//benzinka[
+    nabiziPaliva/refPalivo = //palivo[typ = 'Diesel']/@iri
+]

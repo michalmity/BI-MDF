@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" 
+               schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+
+    <xs:complexType name="langString">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="xml:lang" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:element name="katalog">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="benzinky">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="benzinka" type="benzinkaType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="paliva">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="palivo" type="palivoType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="dodavatele">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="dodavatel" type="dodavatelType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="benzinkaType">
+        <xs:sequence>
+            <xs:element name="nazev" type="langString"/>
+            <xs:element name="adresa" type="langString"/>
+            <xs:element name="oteviraciDoba" type="xs:string"/>
+            <xs:element name="nabiziPaliva">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="refPalivo" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="palivoType">
+        <xs:sequence>
+            <xs:element name="typ" type="langString"/>
+            <xs:element name="cena" type="xs:decimal"/>
+            <xs:element name="dodavatelePaliva">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="refDodavatel" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="dodavatelType">
+        <xs:sequence>
+            <xs:element name="jmeno" type="langString"/>
+            <xs:element name="kontakt" type="xs:string"/>
+            <xs:element name="kapacita" type="xs:integer"/>
+        </xs:sequence>
+        <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

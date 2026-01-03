@@ -1,0 +1,7 @@
+(: 3. Najdi všechny benzínky, které mají otevřeno po 22:00 a nabízejí LPG. :)
+
+//benzinka[
+    substring-after(oteviraciDoba, '-') > '22:00'
+    and
+    nabiziPaliva/refPalivo = //palivo[typ = 'LPG']/@iri
+]
