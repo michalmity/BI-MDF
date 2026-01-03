@@ -1,0 +1,55 @@
+PREFIX ex: <http://example.org/vocabulary/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:benzinka1  a           ex:Benzinka;
+        ex:adresa         "Na Příkopě 25, Praha 1"@cs;
+        ex:nazev          "Shell Praha"@cs;
+        ex:oteviracidoba  "06:00-22:00";
+        ex:paliva         ex:palivo1;
+        ex:paliva         ex:palivo2;
+        ex:paliva         ex:palivo3 .
+
+ex:benzinka2  a           ex:Benzinka;
+        ex:adresa         "Pražská 125, Brno"@cs;
+        ex:nazev          "OMV Brno"@cs;
+        ex:oteviracidoba  "00:00-24:00";
+        ex:paliva         ex:palivo2;
+        ex:paliva         ex:palivo3;
+        ex:paliva         ex:palivo4 .
+
+ex:dodavatel1  a     ex:Dodavatel;
+        ex:jmeno     "ČEPRO, a.s."@cs;
+        ex:kapacita  1000000;
+        ex:kontakt   <mailto:info@cepro.cz> .
+
+ex:dodavatel2  a     ex:Dodavatel;
+        ex:jmeno     "MOL Česká republika"@cs;
+        ex:kapacita  850000;
+        ex:kontakt   <tel:+420800123456> .
+
+ex:dodavatel3  a     ex:Dodavatel;
+        ex:jmeno     "Unipetrol RPA"@cs;
+        ex:kapacita  1200000;
+        ex:kontakt   <mailto:obchod@unipetrol.cz> .
+
+ex:palivo1  a          ex:Palivo;
+        ex:cenaZaLitr  "3.85E1"^^xsd:decimal;
+        ex:dodavatel   ex:dodavatel1;
+        ex:dodavatel   ex:dodavatel2;
+        ex:typ         "Natural 95" .
+
+ex:palivo2  a          ex:Palivo;
+        ex:cenaZaLitr  "3.72E1"^^xsd:decimal;
+        ex:dodavatel   ex:dodavatel1;
+        ex:dodavatel   ex:dodavatel3;
+        ex:typ         "Diesel" .
+
+ex:palivo3  a          ex:Palivo;
+        ex:cenaZaLitr  "1.98E1"^^xsd:decimal;
+        ex:dodavatel   ex:dodavatel2;
+        ex:typ         "LPG" .
+
+ex:palivo4  a          ex:Palivo;
+        ex:cenaZaLitr  "4.19E1"^^xsd:decimal;
+        ex:dodavatel   ex:dodavatel3;
+        ex:typ         "Natural 98" .
