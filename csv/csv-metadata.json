@@ -1,0 +1,49 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "@type": "TableGroup",
+  "tables": [
+    {
+      "url": "data-1.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "id", "titles": "id", "suppressOutput": true},
+          {"name": "nazev", "titles": "nazev", "datatype": "string", "lang": "cs"},
+          {"name": "adresa", "titles": "adresa", "datatype": "string", "lang": "cs"},
+          {"name": "oteviracidoba", "titles": "oteviracidoba", "datatype": "string"},
+          {"name": "palivo_id", "titles": "palivo_id", "datatype": "string"}
+        ],
+        "foreignKeys": [
+          {
+            "columnReference": "palivo_id",
+            "reference": {
+              "resource": "data-2.csv",
+              "columnReference": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "data-2.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "id", "titles": "id", "suppressOutput": true},
+          {"name": "typ", "titles": "typ", "datatype": "string", "lang": "cs"},
+          {"name": "cena", "titles": "cena", "datatype": "decimal"}
+        ],
+        "primaryKey": "id"
+      }
+    },
+    {
+      "url": "data-3.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "id", "titles": "id", "suppressOutput": true},
+          {"name": "jmeno", "titles": "jmeno", "datatype": "string", "lang": "cs"},
+          {"name": "kapacita", "titles": "kapacita", "datatype": "integer"}
+        ],
+        "primaryKey": "id"
+      }
+    }
+  ]
+}
