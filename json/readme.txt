@@ -7,4 +7,5 @@ Soubory:
 JQ Transformace:
 1. query-1-1.jq: Extrahuje z dat jednoduchý seznam objektů obsahující název benzínky a její otevírací dobu.
 2. query-1-2.jq: Prochází všechny benzínky a vrací pole unikátních názvů paliv (např. ["Diesel", "LPG", "Natural 95"...]).
-3. query-2-1.jq: Filtruje benzínky a vrací názvy těch, které mají otevřeno v 24:00.
+3. query-1-3.jq: Filtruje benzínky a vrací názvy těch, které mají otevřeno v 24:00.
+3. query-1-4.jq: Extrahuje z dat jednoduchý seznam objektů obsahující název benzínky a její adresu.
